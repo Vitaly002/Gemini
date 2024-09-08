@@ -7,7 +7,7 @@ import { Context } from '../../context/Context';
 const Main = () => {
 
     const { onSent, recentPrompt, showResult, loading, resultData,
-        setInput, input} = useContext(Context);
+        setInput, input} = useContext(Context); // useContext hook
 
     return(
         <div className="main">
