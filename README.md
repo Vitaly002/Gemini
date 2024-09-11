@@ -1,48 +1,66 @@
-# Gemini AI Clone
+<div align="center">
+  <br />
+      <img src="./src/assets/banner.png" alt="Project Banner">
+  <br />
+
+  <div>
+    <img src="https://img.shields.io/badge/-Next_JS-black?style=for-the-badge&logoColor=white&logo=nextdotjs&color=000000" alt="nextdotjs" />
+    <img src="https://shields.io/badge/react-black?logo=react&style=for-the-badge" alt="react" />
+    <img src="https://img.shields.io/badge/-CSS-lightblue?style=for-the-badge&logo=css3&logoColor=1572B6&color=lightblue" alt="css" />
+    <img src="https://img.shields.io/badge/Google%20AI%20API-black?style=for-the-badge&logo=google&logoColor=white&color=4285F4" alt="googleapi" />
+  </div>
+
+  <h3 align="center">A Gemini AI Clone</h3>
+
+</div>
+
+## 📋 <a name="table">Table of Contents</a>
+
+1. 🤖 [Introduction](#introduction)
+2. ⚙️ [Tech Stack](#tech-stack)
+3. 🔋 [Features](#features)
+4. 💡 [AI Integration](#ai-integration)
+
+## <a name="introduction">🤖 Introduction</a>
+
 A web application replicating the functionality of Gemini AI, designed to enhance productivity through task automation with the help of an AI model. The app allows users to interact with generative AI to receive task suggestions, summarizations, brainstorming ideas, and code improvements.
 
-## Features
-Task Automation: Automate various tasks using an advanced AI model.
+## <a name="tech-stack">⚙️ Tech Stack</a>
 
-User-Friendly Interface: An intuitive and interactive UI for seamless interaction.
+- React
+- CSS (Styled Components)
+- Node.js
+- Google Generative AI API
 
-Recent Prompts: Save and access previous prompts for easy reuse and efficient task handling.
+## <a name="features">🔋 Features</a>
 
-Real-Time Responses: Get immediate feedback and suggestions from the AI model.
+👉**Task Automation**: Automate various tasks using an advanced AI model.
 
-Customizable Inputs: Tailor prompts according to the user’s specific needs for personalized outputs.
+👉**User-Friendly Interface**: An intuitive and interactive UI for seamless interaction.
 
-## Technologies Used
-### Frontend
+👉**Recent Prompts**: Save and access previous prompts for easy reuse and efficient task handling.
 
-React: Core framework for building the UI.
-    
-React Hooks: Utilizing Context API for managing state across components.
+👉**Real-Time Responses**: Get immediate feedback and suggestions from the AI model.
 
-Custom CSS: Styling for a sleek and responsive design.
+👉**Customizable Inputs**: Tailor prompts according to the user’s specific needs for personalized outputs.
 
-### Backend
+and many more
 
-Node.js (v18 or higher): Server-side runtime for handling requests.
+## <a name="#ai-integration">💡 AI Integration</a>
 
-Google Generative AI API: For handling real-time, generative responses from Gemini AI.
-
-### Assets
-Icons and Images: User-friendly visuals to enhance the UI experience (located in the assets folder).
-
-### AI Integration
 The AI uses Google Generative AI (Gemini 1.5) for task automation, and real-time response generation, with safety settings to avoid harmful content.
 
-## Usage
-Interacting with the AI:
+👉**Usage**:
 
 1) Enter prompts in the search box (e.g., “Summarize urban planning” or “Suggest places for a road trip”).
+
 2) View results in real-time as the AI processes and returns feedback.
+
 3) Reuse recent prompts from the sidebar for quick task handling.
+
 4) Creating New Chats - click the "New Chat" button in the sidebar to start a fresh conversation with the AI.
 
-## API Usage
-The project integrates Google Generative AI to provide real-time responses and task suggestions. The key function responsible for API interaction is runChat() located in src/api/index.js. This function:
+👉**API Usage**
 
 1) Configures response settings such as temperature, topK, topP, and output token limits.
 
