@@ -19,7 +19,7 @@
 1. 🤖 [Introduction](#introduction)
 2. ⚙️ [Tech Stack](#tech-stack)
 3. 🔋 [Features](#features)
-4. 💡 [AI Integration](#ai)
+4. 💡 [AI Integration](#ai-integration)
 
 ## <a name="introduction">🤖 Introduction</a>
 
@@ -46,7 +46,7 @@ A web application replicating the functionality of Gemini AI, designed to enhanc
 
 and many more
 
-## <a name="#ai">💡 AI Integration</a>
+## <a name="ai-integration">💡 AI Integration</a>
 
 The AI uses Google Generative AI (Gemini 1.5) for task automation, and real-time response generation, with safety settings to avoid harmful content.
 
