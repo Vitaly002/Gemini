@@ -9,6 +9,14 @@ const Main = () => {
     const { onSent, recentPrompt, showResult, loading, resultData,
         setInput, input} = useContext(Context); // useContext hook
 
+    // Handle key press event to send message on Enter key
+    const handleKeyDown = (event) => {
+        if (event.key === 'Enter') {
+            event.preventDefault(); // Prevent default behavior like form submission
+            onSent(input); // Call the onSent function with the current input
+        }
+    };
+
     return(
         <div className="main">
             <div className="nav">
@@ -62,7 +70,11 @@ const Main = () => {
 
                 <div className="main-bottom">
                     <div className="search-box">
-                        <input onChange={(e) =>setInput(e.target.value)} value={input} type="text" placeholder='Enter a prompt here' />
+                        <input onChange={(e) =>setInput(e.target.value)}
+                        onKeyDown={handleKeyDown}
+                        value={input} 
+                        type="text" 
+                        placeholder='Enter a prompt here' />
                         <div>
                             <img src={assets.gallery_icon} alt="" />
                             <img src={assets.mic_icon} alt="" />
