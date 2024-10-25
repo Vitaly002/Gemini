@@ -10,11 +10,10 @@ const Main = () => {
         setInput, input} = useContext(Context); // useContext hook
 
     // Handle key press event to send message on Enter key
-    const handleKeyDown = async (event) => {
+    const handleKeyDown = (event) => {
         if (event.key === 'Enter') {
             event.preventDefault(); // Prevent default behavior like form submission
-            setRecentPrompt(input);
-            await onSent(input); // Call the onSent function with the current input
+            onSent(input); // Call the onSent function with the current input
         }
     };
 
