@@ -6,7 +6,7 @@ import { Context } from '../../context/Context';
 
 const Main = () => {
 
-    const { onSent, recentPrompt, showResult, loading, resultData,
+    const { onSent, recentPrompt, showResult, loading, conversationHistory,
         setInput, input} = useContext(Context); // useContext hook
 
     // Handle key press event to send message on Enter key
@@ -57,13 +57,22 @@ const Main = () => {
                     </div>
                     <div className="result-data">
                         <img src={assets.gemini_icon} alt="" />
-                        {loading
-                        ? <div className="loader">
-                            <hr />
-                            <hr />
-                            <hr />
-                        </div> 
-                        : <p dangerouslySetInnerHTML={{__html:resultData}}></p>}
+                        {loading ?
+                                <div className="loader">
+                                    <hr />
+                                    <hr />
+                                    <hr />
+                                </div>
+                                :
+                                <div className="conversation-history">
+                                    {conversationHistory.map((entry, index) => (
+                                        <div key={index} className="conversation-entry">
+                                            <p><b>You:</b> {entry.prompt}</p>
+                                            <p><b>Gemini:</b> {entry.response}</p>
+                                        </div>
+                                    ))}
+                                </div>
+                            }
                     </div>
                 </div>
                 }

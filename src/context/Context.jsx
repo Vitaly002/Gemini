@@ -11,47 +11,38 @@ const ContextProvider = (props) => {
     const[showResult, setShowResult] = useState(false);
     const[loading, setLoading] = useState(false);
     const[resultData, setResultData] = useState("");
+    const [conversationHistory, setConversationHistory] = useState([]); // New state
 
-    const delayPara = (index,nextWord) => {
-        setTimeout(function () {
-            setResultData(prev=>prev+nextWord);
-        }, 75*index);
-    }
+    // const delayPara = (index,nextWord) => {
+    //     setTimeout(function () {
+    //         setResultData(prev=>prev+nextWord);
+    //     }, 75*index);
+    // }
 
     const newChat = () => {
         setLoading(false);
         setShowResult(false);
+        setConversationHistory([]); // Clear history for a new chat session
     }
 
     const onSent = async (prompt) => {
-
         setResultData("");
         setLoading(true);
         setShowResult(true);
+
         let response;
-        if (prompt !== undefined) {
-            response = await runChat(prompt);
-            setRecentPrompt(prompt);
-        } else {
-            setPrevPrompts(prev=>[...prev,input]);
-            setRecentPrompt(input);
-            response = await runChat(input);
-        }
-        let responseArray = response.split("**");
-        let newResponse="";
-        for(let i=0; i < responseArray.length; i++) {
-            if (i === 0 || i%2 !== 1) {
-                newResponse += responseArray[i];
-            } else {
-                newResponse += "<b>"+responseArray[i]+"</b>";
-            }
-        }
-        let newResponse2 = newResponse.split("*").join("</br>");
-        let newResponseArray = newResponse2.split(" ");
-        for(let i=0; i<newResponseArray.length; i++) {
-            const nextWord = newResponseArray[i];
-            delayPara(i, nextWord+" ");
-        }
+        const currentPrompt = prompt !== undefined ? prompt : input;
+        setPrevPrompts(prev => [...prev, currentPrompt]);
+        setRecentPrompt(currentPrompt);
+
+        // Fetch the response for the prompt
+        response = await runChat(currentPrompt);
+
+        // Append to conversation history
+        setConversationHistory(prevHistory => [
+            ...prevHistory,
+            { prompt: currentPrompt, response } // Store prompt and response together
+        ]);
 
         setLoading(false);
         setInput("");
@@ -68,7 +59,8 @@ const ContextProvider = (props) => {
         resultData,
         input,
         setInput,
-        newChat
+        newChat,
+        conversationHistory, // Provide the conversation history
     }
 
     return(
