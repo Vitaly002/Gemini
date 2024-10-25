@@ -16,7 +16,7 @@ import {
   
     const generationConfig = {
       temperature: 1,
-      topK: 0,
+      topK: 1,
       topP: 0.95,
       maxOutputTokens: 8192,
     };
