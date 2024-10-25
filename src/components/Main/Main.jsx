@@ -13,6 +13,7 @@ const Main = () => {
     const handleKeyDown = (event) => {
         if (event.key === 'Enter') {
             event.preventDefault(); // Prevent default behavior like form submission
+            setRecentPrompt(input); // Update recentPrompt
             onSent(input); // Call the onSent function with the current input
         }
     };
